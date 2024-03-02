@@ -1,0 +1,205 @@
+<form >
+  <div   >
+<label class="title-head" > Import Users</label>
+<button mat-stroked-button  class="success-button" >1000 licenses</button>
+<label class="back-label" ><mat-icon class="west-icon" >west</mat-icon>Back</label>
+</div>
+
+<mat-tab-group >
+  <mat-tab label="LDAP">
+    <div class="import-users-panel">
+    <mat-card-title class="import-users-title" >
+      <mat-label>Filter Users</mat-label>
+      <p class="ldap-config-label" > <mat-icon class="ldap-icon">display_settings</mat-icon> Ldap Configuration</p>
+    </mat-card-title>
+  <mat-card class="field-card">
+    <mat-card-content>
+    <mat-grid-list cols="2" rowHeight="4:1">
+      
+      <mat-grid-tile>
+        <mat-grid-tile-header class="mat-grid-tile-header">
+        <div>User Field</div> 
+      </mat-grid-tile-header> 
+        <input matInput class="field-input" placeholder="User Field " >
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-grid-tile-header class="mat-grid-tile-header">
+          <div>User Field Value</div> 
+        </mat-grid-tile-header> 
+          <input matInput class="field-input" placeholder="Enter User Field Value" >
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-grid-tile-header class="mat-grid-tile-header">
+          <div>Custom Field</div> 
+        </mat-grid-tile-header> 
+          <input matInput class="field-input" placeholder="Enter Custom Field" >
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-grid-tile-header class="mat-grid-tile-header">
+          <div>Custom Field Value</div> 
+        </mat-grid-tile-header> 
+          <input matInput class="field-input" placeholder="Enter Custom Field Value" >
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+  <mat-card-footer class="field-card-footer">
+    <mat-card-actions>
+     <button mat-stroked-button class="clear-action-button"   ><mat-icon>filter_alt_off</mat-icon>Clear</button>
+     <button mat-stroked-button  class="import-action-button" > Import </button>
+     <button mat-stroked-button  class="action-button" ><mat-icon>filter_alt</mat-icon> Filter Users</button>
+    </mat-card-actions>
+  </mat-card-footer>
+  </mat-card>
+     </div>  
+</mat-tab>
+  <mat-tab label="Azure">
+    <div class="import-users-panel">
+      <mat-card-title class="import-users-title" >
+        <mat-label>Filter Users</mat-label>
+        <p class="ldap-config-label" > <mat-icon class="ldap-icon">display_settings</mat-icon> Ldap Configuration</p>
+      </mat-card-title>
+    <mat-card class="field-card">
+      <mat-card-content>
+      <mat-grid-list cols="2" rowHeight="4:1">
+        
+        <mat-grid-tile>
+          <mat-grid-tile-header class="mat-grid-tile-header">
+          <div>User Field</div> 
+        </mat-grid-tile-header> 
+          <input matInput class="field-input" placeholder="User Field " >
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-grid-tile-header class="mat-grid-tile-header">
+            <div>User Field Value</div> 
+          </mat-grid-tile-header> 
+            <input matInput class="field-input" placeholder="Enter User Field Value" >
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-grid-tile-header class="mat-grid-tile-header">
+            <div>Custom Field</div> 
+          </mat-grid-tile-header> 
+            <input matInput class="field-input" placeholder="Enter Custom Field" >
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-grid-tile-header class="mat-grid-tile-header">
+            <div>Custom Field Value</div> 
+          </mat-grid-tile-header> 
+            <input matInput class="field-input" placeholder="Enter Custom Field Value" >
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+    <mat-card-footer class="field-card-footer">
+      <mat-card-actions>
+       <button mat-stroked-button class="clear-action-button" (click)="clearFilter()"><mat-icon>filter_alt_off</mat-icon>Clear</button>
+       <button mat-stroked-button  class="import-action-button" > Import </button>
+       <button mat-stroked-button  class="action-button"  (click)="applyfilter()" ><mat-icon>filter_alt</mat-icon> Filter Users</button>
+      </mat-card-actions>
+    </mat-card-footer>
+    </mat-card>
+       </div> 
+  </mat-tab>
+  <mat-tab label="File">
+    <div class="import-users-panel">
+      <mat-grid-list cols="5" rows="5" rowHeight="3:1">
+        <mat-grid-tile colspan="3" rowspan="5" >
+          <div class="File-upload-shell-card" >
+          <mat-card-title class="mat-card-title" >
+            <p>Upload File</p>
+          </mat-card-title>
+          <mat-card class="file-field-card">
+          <mat-card-content>
+            <div class="file-file-type" >  
+            <p>File Type </p>
+              <mat-radio-group >
+                <mat-radio-button color="primary" class="example-margin" value="CSV">CSV</mat-radio-button>
+                <mat-radio-button color="primary" class="example-margin" value="Excel">Excel(XLSX)</mat-radio-button>
+              </mat-radio-group>
+            </div>
+              <div class="file-file-input" >
+            <input class="field-input" id="file" type="file" placeholder="User Field " >
+          </div>
+           <div class="file-import-button" >
+              <button mat-stroked-button  class="import-file-button" > Import </button>
+           </div>
+          </mat-card-content>
+         </mat-card>
+       </div>
+      </mat-grid-tile>
+        <mat-grid-tile rowspan="5" colspan="2">
+          <div class="File-display-shell-card"   >
+            <mat-card-title class="mat-card-title" >
+              <p class="list-files-label"><mat-icon class="history-icon" >history</mat-icon>Recent Files</p>
+            </mat-card-title>
+            <mat-card class="file-display-card" >
+             <mat-card-content >
+               <div class="file-file-type"  >  
+                 @for (file of files; track file) {
+                   <mat-list-item>
+                    <p class="list-files-label"> <mat-icon matListItemIcon class="file-icon" >description</mat-icon> <mat-label matListItemTitle>{{file.name}}</mat-label> <mat-label matListItemLine class="file-size-label" >{{file.size}}</mat-label> </p> 
+                   </mat-list-item>
+                 }
+               </div>
+             </mat-card-content>
+           </mat-card>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+       </div> 
+  </mat-tab>
+</mat-tab-group>
+<div class="imported-users-div" >
+<label class="subtitle-head" >Imported Users</label>
+<label class="import-label"  >12</label>
+</div>
+<mat-divider></mat-divider>
+<label  color="primary" class="index-label"  >6</label>   <input  matInput #inputfilter (click)="applyfilter()" class="filter-input" placeholder="Search"  >
+<button mat-stroked-button matIconPrefix="plus" class="control-button" ><mat-icon>add</mat-icon>Invite Users</button>
+<button mat-stroked-button matIconPrefix="calender" class="control-button"  ><mat-icon>person_book</mat-icon> Give Access</button>
+<button mat-stroked-button matIconPrefix="delete" class="control-button" > <mat-icon>delete</mat-icon> Delete</button>
+<table mat-table  [dataSource]="dataSource" matSort class="">
+  <!-- Selected Column -->
+  <ng-container matColumnDef="Selected">
+    <th mat-header-cell  *matHeaderCellDef> <mat-label  color="primary" class="select-header"  >---</mat-label> </th>
+    <td mat-cell *matCellDef="let element"> <mat-checkbox color="primary" [checked]="element.Selected" ></mat-checkbox> </td>
+  </ng-container>
+
+  <!-- Username Column -->
+  <ng-container matColumnDef="Username">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> Username </th>
+    <td mat-cell *matCellDef="let element"> {{element.Username}} </td>
+  </ng-container>
+
+  <!-- Firstname Column -->
+  <ng-container matColumnDef="Firstname">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> Firstname </th>
+    <td mat-cell *matCellDef="let element"> {{element.Firstname}} </td>
+  </ng-container>
+  <!-- Lastname Column -->
+  <ng-container matColumnDef="Lastname">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> Lastname </th>
+    <td mat-cell *matCellDef="let element"> {{element.Lastname}} </td>
+  </ng-container>
+    <!-- Resuorce Column -->
+  <ng-container matColumnDef="Resuorce">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> Resuorce </th>
+    <td mat-cell *matCellDef="let element"> {{element.Resuorce}} </td>
+  </ng-container>
+    <!-- Department Column -->
+  <ng-container matColumnDef="Department">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> Department </th>
+    <td mat-cell *matCellDef="let element"> {{element.Department}} </td>
+  </ng-container>
+    <!-- Status Column -->
+    <ng-container matColumnDef="Status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-stroked-button *ngIf="element.Status" class="success-button" >Active</button>
+      <button mat-stroked-button *ngIf="!element.Status" class="inactive-button" >Invite</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+</form>
